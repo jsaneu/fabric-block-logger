@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.extclp.block.logger.fabric.mixins",
+  "compatibilityLevel": "JAVA_14",
+  "mixins": [
+    "MixinBlockItem",
+    "MixinFireBlock",
+    "MixinPlayerManager",
+    "MixinServerPlayerInteractionManager",
+    "MixinServerPlayNetworkHandler"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

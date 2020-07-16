@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "block-logger",
+  "version": "${version}",
+
+  "authors": [
+    "extclp"
+  ],
+  "entrypoints": {
+    "main": [
+      "com.extclp.block.logger.fabric.BlockLoggerMod"
+    ]
+  },
+  "mixins": [
+    "block.logger.mixins.json"
+  ],
+  "depends": {
+    "fabric-lifecycle-events-v1": "*"
+  }
+}
