@@ -28,9 +28,11 @@ public class BlockLoggerMod implements ModInitializer {
             dataBase = new H2Database("jdbc:h2:./config/trace/database");
             logger = new AsyncLogger(dataBase);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         ServerLifecycleEvents.SERVER_STOPPED.register(BlockLoggerMod::onServerStop);
+
+        //tick
         ServerTickEvents.START_SERVER_TICK.register(server -> {
             startNanoTime = System.nanoTime();
         });
