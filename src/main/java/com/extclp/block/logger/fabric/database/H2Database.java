@@ -98,7 +98,7 @@ public class H2Database implements Database {
                     "time date," +
                     "player integer, " +
                     "action tinyint," +
-                    "chat char" +
+                    "message char" +
                     ");");
         }
 
@@ -242,10 +242,10 @@ public class H2Database implements Database {
     @Override
     public void logTick(long startNanoTime, long endNanoTime, int playerCount) throws SQLException {
         try(PreparedStatement statement = connection.prepareStatement(
-                "insert into record_tick(start_nano_time,end_nano_time,player_count) values(?,?)")){
+                "insert into record_tick(start_nano_time,end_nano_time,player_count) values(?,?,?)")){
             statement.setLong(1, startNanoTime);
-            statement.setLong(1, endNanoTime);
-            statement.setInt(2, playerCount);
+            statement.setLong(2, endNanoTime);
+            statement.setInt(3, playerCount);
             statement.execute();
         }
     }
